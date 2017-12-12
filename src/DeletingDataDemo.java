@@ -1,11 +1,13 @@
+package src;
+
 import java.sql.*;
 
 public class DeletingDataDemo {
 
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/demo";
+        String url = "jdbc:mysql://localhost:3306/customer";
         String user = "root";
-        String pass = "abc123";
+        String pass = "root";
 
         try{
             //1. Get a connection to database
@@ -15,7 +17,7 @@ public class DeletingDataDemo {
             Statement myStmt = myConn.createStatement();
 
             //3. Execute the SQL Query
-            String sql = "delete from employees where id=2";
+            String sql = "delete from user_summery where customer_id=2";
 
             int rowsAffected = myStmt.executeUpdate(sql);
 
@@ -28,6 +30,7 @@ public class DeletingDataDemo {
         }
         catch (Exception e){
             e.printStackTrace();
+            System.out.println(e);
         }
     }
 
